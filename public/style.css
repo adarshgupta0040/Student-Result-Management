@@ -1,0 +1,22 @@
+body{
+    margin-inline-start: 10px;
+  }
+
+#loginas{
+  text-align: center;
+  margin-block-start: 50px;
+}
+
+#index{
+  text-align: center;
+}
+
+#index-btn,#index-btn2{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h4{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

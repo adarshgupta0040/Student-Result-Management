@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html Lang="en">
+
+<head>
+    <title>Results Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+
+<body>
+    <%- include('./layouts/layout') %>
+
+    <div class="d-flex justify-content-between align-items-center" style="margin-inline-start: 10px;margin-inline-end: 10px;">
+        <a href="/" class="btn btn-danger" style="margin-block-start:5px;">Back</a>
+        <a href="/teacher/addStudent" class="btn btn-warning" style="margin-block-start:5px;">Add Result</a>
+    </div>
+
+    <h4>Total <%= std.length %> Students</h4>
+    <div class="tableDiv">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Roll No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Your table data goes here -->
+                    <%  std.forEach(element => { %>
+                        <tr class="head">
+                            <td><%= element.rollNumber %></td>
+                            <td><%= element.name %></td>               
+                            <td><%= element.dob.toLocaleDateString('en-GB') %></td>
+                            <td><%= element.score %></td> 
+                            <td>
+                              <a href="/teacher/edit/<%= element.rollNumber %> "><img style="margin: 0px 5px;" src="https://img.icons8.com/material-outlined/30/000000/edit.png"/></a>
+                              <a href="/teacher/delete/<%= element.rollNumber %> "><img style="margin: 0px 5px;" src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png"/></a>
+                            </td>
+                          </tr>
+                    <%}) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+
+<style>
+    h4{
+        margin: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .tableDiv {
+  margin: 10px 15px;  
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+.table {
+  text-align: center;
+}
+    
+</style>
+</html>
